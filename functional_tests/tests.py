@@ -43,7 +43,7 @@ class NewVisitorTest(LiveServerTestCase):
 
 		page_text = self.browser.find_element_by_tag_name('body').text
 		self.assertNotIn('Buy peacock feathers',page_text)
-		self.assertNotIn('Buy milk', page_text)
+		self.assertIn('Buy milk', page_text)
 
 	def wait_for_row_in_list_table(self, row_text):
 		start_time = time.time()
@@ -59,10 +59,10 @@ class NewVisitorTest(LiveServerTestCase):
 				time.sleep(0.5)
 
 
-	def check_for_row_in_list_table(self, row_text):
-		table=self.browser.find_element_by_id('id_list_table')
-		rows=table.find_elements_by_tag_name('tr')
-		self.assertIn(row_text, [row.text for row in rows])
+	#def check_for_row_in_list_table(self, row_text):
+		#table=self.browser.find_element_by_id('id_list_table')
+		#rows=table.find_elements_by_tag_name('tr')
+		#self.assertIn(row_text, [row.text for row in rows])
 
 	def test_can_start_a_list_for_one_user(self):
 		# Edith has heard about a cool new online to-do app. She goes
@@ -116,7 +116,7 @@ class NewVisitorTest(LiveServerTestCase):
 
         # There is still a text box inviting her to add another item. She
         # enters "Use peacock feathers to make a fly"(Edith is very methodical)
-		self.fail('Finish the test!')
+		#self.fail('Finish the test!')
 
 # The page updates again, and now shows both items on her list
 
